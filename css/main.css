@@ -3,7 +3,7 @@ body {
 }
 
 table {
-    margin: 100px auto;
+    margin: 10px auto;
     border: 5px solid lightgray;
 }
 
@@ -24,6 +24,22 @@ td {
 
 .cellClicked {
     background-color: lightgray;
+}
+
+.lives {
+    width: 60px;
+    height: 40px auto;
+    background-color: lightgray;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+
+}
+
+.hints button {
+    border: none;
+    background-color: white;
 }
 
 /* .trying{
