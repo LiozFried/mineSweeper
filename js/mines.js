@@ -58,7 +58,7 @@ function setMinesNegsCount(board, rowIdx, colIdx) {
 
 function placeMines(amount) {
     const nonMineCells = getNonMineCells()
-    console.log(nonMineCells)
+    // console.log(nonMineCells)
 
     for (var i = 0; i < amount; i++) {
         var randIdx = getRandomInt(0, nonMineCells.length)

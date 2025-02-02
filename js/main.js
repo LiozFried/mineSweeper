@@ -9,7 +9,8 @@ const WIN = '😎'
 var gBoard
 var gLevel = {
     SIZE: 4,
-    MINES: 2
+    MINES: 2,
+    LEVEL: '4*4'
 }
 
 var gGame = {
@@ -31,7 +32,7 @@ function onInit() {
 
     renderBoard(gBoard)
     renderLives()
-    renderHints()
+    // renderHints()
 
 }
 
@@ -56,10 +57,12 @@ function buildBoard(size) {
 
 function renderBoard(board) {
 
+    var colSpanEdge = gLevel.SIZE / 4
+    var colSpanMiddele = gLevel.SIZE / 2
     var strHTML = `<table><thead>
-                   <div><th class="timer">${gGame.secsPassed}</th>
-                   <th colspan="2"><button onclick="onReset(this)">${NORMAL}</button></th>
-                   <th>${gLevel.SIZE}</th></div>
+                   <div><th colspan="${colSpanEdge}" class="timer">${gGame.secsPassed}</th>
+                   <th colspan="${colSpanMiddele}"><button onclick="onReset(this)">${NORMAL}</button></th>
+                   <th colspan="${colSpanEdge}">${gLevel.LEVEL}</th></div>
                    </thead><tbody>`
     for (var i = 0; i < board.length; i++) {
         strHTML += '<tr>'
@@ -88,16 +91,29 @@ function renderBoard(board) {
 function onCellClicked(elCell, i, j) {
 
     if (!gGame.isOn) return
-    
-    if (!gIsHint){
 
+    // if (gIsHint) {
+    //     !gIsHint
+    //     elCell.style = 'background-color: yellow'
+    //     if (gBoard[i][j].isMine) {
+    //         elCell.children[0].innerText = MINE
+    //     } else {
+    //         elCell.children[0].innerText = gBoard[i][j].minesAroundCount
+    //     }
+    //     setTimeout(() => {
+    //         elCell.style = 'background-color: white'
+    //         elCell.children[0].innerText = ' '
+    //         gHints--
+    //         renderHints()
 
-    }
+    //         return
+    //     }, 1500)
+    // }
 
     if (isFirstClicked()) {
-        // placeMines(gLevel.MINES)
-        gBoard[2][1].isMine = true
-        gBoard[3][3].isMine = true
+        placeMines(gLevel.MINES)
+        // gBoard[2][1].isMine = true
+        // gBoard[3][3].isMine = true
         minesNeg(gBoard)
         startTimer()
     }
@@ -241,22 +257,19 @@ function onReset(elBtn) {
     onInit()
 }
 
-function renderHints() {
-    var elHints = document.querySelector('.hints')
-    var strHTML = ''
-    for (var i = 0; i < gHints; i++) {
-        strHTML += `<button onclick="onHints(this)">${HINTS}</button>`
-    }
-    elHints.innerHTML = strHTML
-}
+// function renderHints() {
+//     var elHints = document.querySelector('.hints')
+//     var strHTML = ''
+//     for (var i = 0; i < gHints; i++) {
+//         strHTML += `<button onclick="onHints(this)">${HINTS}</button>`
+//     }
+//     elHints.innerHTML = strHTML
+// }
 
-function onHints(elBtn) {
-    console.log('Hint!')
-    gIsHint = true
-    onCellClicked()
-    elBtn.style = 'background-color: yellow'
-    gHints--
+// function onHints(elBtn) {
+//     console.log('Hint!')
+//     gIsHint = true
 
-    //keep going from here
+//     elBtn.style = 'background-color: yellow'
 
-}
+// }

@@ -12,13 +12,21 @@
     <h1>Mine Sweeper</h1>
 
     <div class="lives">lives: <span></span></div>
-    <div class="hints"></div>
+    <!-- <div class="hints"></div> -->
 
     <div class="board-container"></div>
+
+    <div class="difficult">
+        <h3>Difficulty Levels</h3>
+        <button onclick="onBeginner(this)">Beginner</button>
+        <button onclick="onIntermediate(this)">Intermediate</button>
+        <button onclick="onExpert(this)">Expert</button>
+    </div>
 
 
     <h4>Mine sweepers edition by Lioz Fried</h4>
     <script src="js/utils.js"></script>
+    <script src="js/difficulty.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/mines.js"></script>
     <script src="js/main.js"></script>
