@@ -56,8 +56,8 @@ function setMinesNegsCount(board, rowIdx, colIdx) {
     return countMinesNeg
 }
 
-function placeMines(amount) {
-    const nonMineCells = getNonMineCells()
+function placeMines(amount, firstI, firstJ) {
+    const nonMineCells = getNonMineCells(firstI, firstJ)
     // console.log(nonMineCells)
 
     for (var i = 0; i < amount; i++) {
@@ -72,11 +72,12 @@ function placeMines(amount) {
     console.table(gBoard)
 }
 
-function getNonMineCells() {
+function getNonMineCells(rowIdx, colIdx) {
     const nonMineCells = []
 
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[i].length; j++) {
+            if(i === rowIdx && j === colIdx) continue
             const currCell = gBoard[i][j]
             const currCellLoc = { i, j }
             if (!currCell.isMine) {

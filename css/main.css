@@ -39,10 +39,9 @@ td {
 
 }
 
-/* .hints button {
-    border: none;
-    background-color: white;
-} */
+.dark-mode {
+    border-color: lightblue;
+}
 
 .difficult {
     border: 3px solid gray;
@@ -62,6 +61,8 @@ button {
     cursor: pointer;
 }
 
-/* .trying{
-    background-color: darkred;
-} */
+.mode {
+    margin-right: 150px ;
+    margin-top: 5px;
+    background-color: rgb(160, 160, 160);
+}
