@@ -147,6 +147,7 @@ function onCellMarked(elCell, ev, i, j) {
 
     ev.preventDefault()
     if (!gGame.isOn) return
+    if (!gBoard[i][j].isCovered) return
 
     if (!gBoard[i][j].isMarked) {
         gBoard[i][j].isMarked = true
